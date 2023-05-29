@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <p class="child">Matches</p>
+      <div>
+        <div>
+          <p id="demo">Hello</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let demo = document.querySelector("#demo");
+      function getParent(demo) {
+        while (demo.parentElement) {
+          if (demo.parentElement.matches(".parent")) {
+            return demo.parentElement;
+          }
+          demo = demo.parentElement;
+        }
+      }
+      getParent(demo).querySelector(".child").classList.add("red");
+    </script>
+  </body>
+</html>
